@@ -1,0 +1,7 @@
+class Solution:
+    #Complete the below function
+    def search(self,arr, N, X):
+        for i in range (N):
+            if X == arr[i]:
+                return i
+        return -1
