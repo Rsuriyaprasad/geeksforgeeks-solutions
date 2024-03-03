@@ -1,0 +1,18 @@
+def isSubset( a1, a2, n, m):
+    d={}
+    for i in a1:
+        if i not in d:
+            d[i] =  1
+        else:
+            d[i] +=1
+        #storing a1 in d completed
+    for i in a2:
+        if i  not in d:
+            return "No"
+        elif i in d and d[i] == 0:
+            return "No"
+        else:
+            d[i] -=1
+    return "Yes"
+    
+    
