@@ -1,0 +1,10 @@
+class Solution:
+    #Function to count the frequency of all elements from 1 to N in the array.
+    def frequencyCount(self, arr, N, P):
+        arr1 = arr.copy()
+        for i in arr1:
+            if i <=N:
+                arr[i-1]+=1
+        for i in range(N):
+            arr[i]= arr[i] - arr1[i]
+        return arr
