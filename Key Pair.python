@@ -1,0 +1,9 @@
+class Solution:
+    def hasArrayTwoCandidates(self, arr, n, x):
+        mpp = {}
+        for num in arr:
+            more_needed = x - num
+            if more_needed in mpp:
+                return True
+            mpp[num] = True
+        return False
