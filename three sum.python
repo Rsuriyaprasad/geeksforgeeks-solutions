@@ -1,22 +1,25 @@
-def find_triplet(arr, n, X):
-    # Sort the array
-    arr.sort()
+class Solution:
+    # Function to find if there exists a triplet in the 
+    # array A[] which sums up to X.
+    def find3Numbers(self, A, n, X):
+        # Sort the array
+        A.sort()
 
-    # Fix the first element as arr[i]
-    for i in range(n - 2):
-        # Initialize two pointers for the remaining elements
-        left = i + 1
-        right = n - 1
+        # Fix the first element as A[i]
+        for i in range(n - 2):
+            # Initialize two pointers for the remaining elements
+            left = i + 1
+            right = n - 1
 
-        # Find the pair with sum equals to X - arr[i]
-        while left < right:
-            current_sum = arr[i] + arr[left] + arr[right]
-            if current_sum == X:
-                return 1  # Triplet found
-            elif current_sum < X:
-                left += 1  # Increment left pointer if current_sum is less than X
-            else:
-                right -= 1  # Decrement right pointer if current_sum is greater than X
+            # Find the pair with sum equals to X - A[i]
+            while left < right:
+                current_sum = A[i] + A[left] + A[right]
+                if current_sum == X:
+                    return 1  # Triplet found
+                elif current_sum < X:
+                    left += 1  # Increment left pointer if current_sum is less than X
+                else:
+                    right -= 1  # Decrement right pointer if current_sum is greater than X
 
-    # No triplet found
-    return 0
+        # No triplet found
+        return 0
