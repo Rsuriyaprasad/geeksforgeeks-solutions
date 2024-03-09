@@ -1,0 +1,39 @@
+class Solution:    
+    # Function to return the count of number of elements in union of two arrays.
+    def doUnion(self, arr1, n, arr2, m):
+        i, j = 0, 0  # Pointers
+        union = []  # Union list
+
+        while i < n and j < m:
+            if arr1[i] <= arr2[j]:  # Case 1 and 2
+                if len(union) == 0 or union[-1] != arr1[i]:
+                    union.append(arr1[i])
+                i += 1
+            else:  # Case 3
+                if len(union) == 0 or union[-1] != arr2[j]:
+                    union.append(arr2[j])
+                j += 1
+
+        while i < n:  # If any elements left in arr1
+            if union[-1] != arr1[i]:
+                union.append(arr1[i])
+            i += 1
+
+        while j < m:  # If any elements left in arr2
+            if union[-1] != arr2[j]:
+                union.append(arr2[j])
+            j += 1
+
+        return len(union)
+
+
+sol2 "worst solution but gfg is accepting this and not accepting sol1"
+
+
+class Solution:    
+    #Function to return the count of number of elements in union of two arrays.
+    def doUnion(self,a,n,b,m):
+        
+        c=a+b
+        d=set(c)
+        return len(d)
