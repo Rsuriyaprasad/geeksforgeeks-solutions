@@ -1,0 +1,29 @@
+#User function Template for python3
+
+#Function to return the count of the number of elements in
+#the intersection of two arrays.
+class Solution:
+    def NumberofElementsInIntersection(self,a, b, n, m):
+        set1=set(a)
+        set2=set(b)
+        res=set1.intersection(set2)
+        return len(res)
+  
+
+sol2"optimized solution"
+
+def intersection_of_arrays(A, B):
+    ans = []
+    i = j = 0
+    
+    while i < len(A) and j < len(B):
+        if A[i] < B[j]:
+            i += 1
+        elif B[j] < A[i]:
+            j += 1
+        else:
+            ans.append(A[i])
+            i += 1
+            j += 1
+    
+    return ans
