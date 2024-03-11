@@ -1,0 +1,58 @@
+# Importing defaultdict from collections module
+
+from collections import defaultdict
+
+class Solution:
+    
+    # Function to find the length of the longest subarray with sum 'k'
+    def lenOfLongSubarr (self, arr, n, k) : 
+        
+        # Creating a default dictionary
+        # Default value for non-existent keys will be 0
+        um = defaultdict(lambda:0) 
+        
+        # Initializing variables
+        sum = 0
+        maxLen = 0
+      
+        # Iterating through the array
+        for i in range(0,n): 
+        
+            # Calculating the current sum
+            sum += arr[i]
+      
+            # Checking if the current sum is equal to 'k'
+            if (sum == k) :
+                maxLen = i + 1
+      
+            # Adding the current sum to the dictionary if it doesn't exist
+            if (sum not in um) :
+                um[sum] = i
+      
+            # Checking if the difference between the current sum and 'k' exists in the dictionary
+            if sum - k in um: 
+      
+                # Checking if the current subarray length is longer than the maximum length found so far
+                if (maxLen < (i - um[sum - k])) :
+                    maxLen = i - um[sum - k]
+            
+        # Returning the maximum subarray length
+        return maxLen
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+
+for _ in range(0,int(input())):
+    
+    n, k = map(int , input().split())
+    arr = list(map(int,input().strip().split()))
+    ob = Solution()
+    print(ob.lenOfLongSubarr(arr, n, k))
+
+
+
+
+# } Driver Code Ends
