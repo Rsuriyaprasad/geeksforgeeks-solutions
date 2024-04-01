@@ -1,0 +1,16 @@
+#User function Template for python3
+
+
+class Solution:
+    
+    #Function to rotate matrix anticlockwise by 90 degrees.
+    def rotateby90(self,a, n):
+        #reversing an matrix 
+        for i in range(n):
+            matrix[i].reverse()
+        #tranposing an matrix
+        for i in range (n):
+            for j in range(i+1,n):
+                matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
+        return matrix
+        
