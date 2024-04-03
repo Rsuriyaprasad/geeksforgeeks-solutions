@@ -1,0 +1,22 @@
+class Solution:
+    # Function to find the row with the minimum number of 1s.
+    def minRow(self, n, m, a):
+        # Initializing variables to store the minimum count of 1s and the index of the row with the minimum count.
+        mn, mni = 1000000, -1
+        
+        # Iterating over all the rows.
+        for i in range(n):
+            c = 0  # Initializing a counter for the number of 1s in the current row.
+            
+            # Counting the number of 1s in the current row.
+            for j in range(m):
+                if a[i][j] == 1:
+                    c += 1
+            
+            # Checking if the current row has the minimum number of 1s encountered so far.
+            if mn > c:
+                mn = c  # Updating the minimum count of 1s.
+                mni = i + 1  # Updating the index of the row with the minimum count of 1s.
+        
+        # Returning the index of the row with the minimum number of 1s.
+        return mni
