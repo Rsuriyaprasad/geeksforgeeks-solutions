@@ -1,0 +1,12 @@
+#User function Template for python3
+
+class Solution:
+    def rotateMatrix(self,N,M,K,Mat):
+        K %= M
+        ans = []
+        for i in range(N):
+            temp=[0]*M
+            for j in range(M):
+                temp[(j-K+M)%M] = Mat[i][j]
+            ans.append(temp)
+        return ans
